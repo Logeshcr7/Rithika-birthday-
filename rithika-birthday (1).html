@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday Rithika 🐱🎂</title>
+<style>
+:root{--bg1:#ffe4ef;--bg2:#e9defa;--ink:#5b3a63;--card:#fffaf5;--pink:#ff8fb8;--lav:#b9a3f0;--peach:#ffc9a8;--shadow:0 10px 30px rgba(150,90,160,.25);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#3a2040;--bg2:#241a4a;--ink:#ffe9f4;--card:#4a2f5a;--shadow:0 10px 30px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg1:#3a2040;--bg2:#241a4a;--ink:#ffe9f4;--card:#4a2f5a;--shadow:0 10px 30px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:'Quicksand','Segoe UI',system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));background-attachment:fixed}
+.screen{display:none;min-height:100vh;padding:24px 16px 40px;flex-direction:column;align-items:center;justify-content:center;text-align:center;animation:fade .7s}
+.screen.on{display:flex}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1}}
+h1,h2{margin:.2em 0;font-family:Georgia,'Times New Roman',serif}
+h1{font-size:clamp(28px,6vw,46px)}
+canvas.c3{width:min(92vw,460px);height:min(62vh,400px);touch-action:none}
+button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:14px 34px;color:#fff;background:linear-gradient(135deg,var(--pink),var(--lav));box-shadow:var(--shadow);cursor:pointer;transition:transform .2s}
+button:hover{transform:scale(1.06)}button:disabled{opacity:.5;cursor:not-allowed}
+input[type=text],input[type=date]{font:inherit;padding:14px 18px;border-radius:16px;border:2px solid var(--lav);background:var(--card);color:var(--ink);text-align:center;width:min(86vw,300px)}
+.err{color:#e0457b;min-height:1.4em;font-weight:700}
+.gifts{display:flex;flex-wrap:wrap;gap:28px;justify-content:center;margin-top:24px}
+.gift{width:150px;cursor:pointer;animation:bob 3s ease-in-out infinite}
+.gift:nth-child(2){animation-delay:.5s}.gift:nth-child(3){animation-delay:1s}
+@keyframes bob{50%{transform:translateY(-12px) rotate(2deg)}}
+.box{position:relative;width:130px;height:110px;margin:34px auto 0;border-radius:10px;box-shadow:var(--shadow)}
+.box:before{content:"";position:absolute;left:-8px;right:-8px;top:-24px;height:34px;border-radius:10px;background:inherit;filter:brightness(1.08);box-shadow:var(--shadow)}
+.box i{position:absolute;left:50%;top:-24px;bottom:0;width:22px;margin-left:-11px;background:#fff8;z-index:1}
+.box b{position:absolute;left:50%;top:-52px;font-size:34px;transform:translateX(-50%);z-index:2}
+.g1 .box{background:#ff8fb8}.g2 .box{background:#b9a3f0}.g3 .box{background:#ffb88a}
+.lock{filter:grayscale(.6);opacity:.7}
+.modal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;padding:16px;z-index:20}
+.modal.on{display:flex}
+.paper{background:var(--card);border-radius:22px;max-width:640px;max-height:84vh;overflow:auto;padding:26px;text-align:left;line-height:1.75;box-shadow:var(--shadow);white-space:pre-wrap}
+.paper .x{float:right;padding:6px 14px}
+.tl{display:flex;flex-direction:column;align-items:center;width:min(92vw,360px)}
+.ph{width:100%;aspect-ratio:4/5;border:3px dashed var(--lav);border-radius:20px;background:var(--card);display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;box-shadow:var(--shadow);font-weight:700}
+.ph img{width:100%;height:100%;object-fit:cover}
+.yr{margin-top:10px;padding:6px 22px;border-radius:999px;background:linear-gradient(135deg,var(--pink),var(--lav));color:#fff;font-weight:800;font-size:20px}
+.link{width:6px;height:56px;background:linear-gradient(var(--lav),var(--pink));border-radius:3px;position:relative}
+.link:after{content:"🐾";position:absolute;left:12px;top:14px;font-size:18px}
+#fin h1{font-size:clamp(34px,9vw,70px);background:linear-gradient(90deg,#ff5f9e,#a77bff,#ff9a62);-webkit-background-clip:text;background-clip:text;color:transparent;animation:pop 1.6s infinite alternate}
+@keyframes pop{to{transform:scale(1.06)}}
+#conf{position:fixed;inset:0;pointer-events:none;z-index:5}
+.sm{opacity:.8;margin:6px 0}
+</style></head><body>
+
+<section class="screen on" id="s1">
+<h1>🐱 A Little Surprise 🎀</h1>
+<canvas class="c3" id="c1"></canvas>
+<button id="enter">Enter 🐾</button>
+</section>
+
+<section class="screen" id="s2">
+<h2>🔐 Secret Password</h2>
+<p class="sm">Enter Rithika's date of birth to open the surprise</p>
+<input type="text" id="dob" placeholder="DD-MM-YYYY" inputmode="numeric" autocomplete="off">
+<p class="err" id="err"></p>
+<button id="unlock">Unlock 💖</button>
+</section>
+
+<section class="screen" id="s3">
+<h2>🎁 Choose your gift, Rithika 🎁</h2>
+<p class="sm">Open them one by one 💗</p>
+<div class="gifts">
+<div class="gift g1" data-g="1"><div class="box"><i></i><b>🎀</b></div><p>Gift 1<br>A Wish 💌</p></div>
+<div class="gift g2" data-g="2"><div class="box"><i></i><b>🎀</b></div><p>Gift 2<br>Cut the Cake 🎂</p></div>
+<div class="gift g3 lock" data-g="3" id="gift3"><div class="box"><i></i><b>🔒</b></div><p>Gift 3<br>Memories 📸</p></div>
+</div>
+<p class="sm" id="hint">Gift 3 opens after you cut the cake 🍰</p>
+</section>
+
+<section class="screen" id="s4">
+<h2>🎂 Make a wish & cut the cake!</h2>
+<canvas class="c3" id="c2"></canvas>
+<button id="cut">🔪 Cut the Cake</button>
+<p class="sm" id="cutmsg"></p>
+<button id="next" style="display:none;margin-top:10px">Enter the next box 🎁</button>
+<button id="back4" style="margin-top:12px;background:var(--lav)">← Back to gifts</button>
+</section>
+
+<section class="screen" id="s5">
+<h2>📸 Our Memories 💗</h2>
+<p class="sm">Tap each box to add a photo</p>
+<div id="timeline"></div>
+<button id="finish" style="margin-top:20px">Finish 🎉</button>
+</section>
+
+<section class="screen" id="fin">
+<h1>Happy Birthday<br>Rithika! 🎂👑</h1>
+<p style="font-size:22px;max-width:520px;line-height:1.6">You are special, loved and so precious. Keep smiling, keep shining! 🌸💖✨</p>
+<div style="font-size:60px">🐱🎀🎁🎈</div>
+<button id="again" style="margin-top:18px">Back to gifts 🎁</button>
+</section>
+
+<div class="modal" id="wish"><div class="paper"><button class="x" id="closew">✕</button><div id="wtext"></div></div></div>
+<canvas id="conf"></canvas>
+
+<script type="application/json" id="photos">{}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const WISH=`🎂❤️✨ Happy Birthday, Rithika! 🥹💖🎉
+
+Today is your special day, and I wish you a life filled with endless happiness, love, success, peace, and beautiful memories. 🫶🏻💗
+
+You are such a special person, and I hope this birthday brings a thousand reasons for you to smile. May all your dreams come true, may every little wish in your heart become a reality, and may you always find reasons to be happy, even on the hardest days. 🦋🌍💫
+
+Life may not always be easy, and sometimes things might not happen the way you expect, but I hope you always have the courage to face every challenge and the strength to keep moving forward. Never forget how precious you are and how much your happiness matters. ❤️🫂
+
+You deserve all the beautiful things this world has to offer, including genuine love, true friendship, unlimited happiness, and people who appreciate you for exactly who you are. 🥹💕
+
+May your smile never fade, may your eyes always shine with happiness, and may your heart always be filled with peace and positivity. 🌸💖
+
+I hope this new chapter of your life brings you closer to your dreams and gives you countless unforgettable moments. May you achieve everything you have been working for and become the person you have always dreamed of becoming. 👑✨
+
+Keep smiling, keep shining, keep believing in yourself, and never let anyone make you feel that you are not enough. You are unique in your own way, and that is what makes you special. 🫶🏻💝
+
+I wish you good health, a long and beautiful life, lots of success, and all the love your heart can hold. May God protect you from negativity, guide you towards the right path, and bless you with happiness in every step of your journey. 🙏🏻❤️🎀
+
+No matter how much time passes or how much life changes, I hope you always have beautiful memories to look back on and exciting dreams to look forward to. 🥰💫
+
+Today, forget all your worries, enjoy every little moment, laugh as much as you can, take lots of pictures, eat your favourite cake, and make this birthday one of the most memorable days of your life! 🎂🍰🎁💗
+
+You deserve to feel special today and every single day. May this year surprise you with unexpected happiness, beautiful opportunities, wonderful people, and moments that make you say, ‘Life is truly beautiful.’ 🥹🌈💖
+
+Always remember that your past does not define you, your mistakes do not reduce your worth, and your dreams are always worth believing in. Keep growing, keep glowing, and keep being the wonderful person you are. 🌷🦋✨
+
+I hope your future is brighter than your dreams, your happiness is bigger than your worries, and your blessings are more than you could ever count. ❤️🎉
+
+Once again, HAPPIEST BIRTHDAY, RITHIKA! 🎂👑💖 May your life always be filled with laughter, your heart with love, your mind with peace, and your days with endless reasons to smile. Stay happy, stay blessed, stay beautiful inside`;
+const SRC='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+const $=id=>document.getElementById(id);
+const PHOTOS=(()=>{try{return JSON.parse($('photos').textContent)||{}}catch(e){return {}}})();
+let tm;
+async function save(){try{const a=await claude.use('artifact');if(!a)return;const h=SRC.replace(/(<script type="application\/json" id="photos">)[\s\S]*?(<\/script>)/,(m,x,y)=>x+JSON.stringify(PHOTOS)+y);try{sessionStorage.setItem('rk','1')}catch(e){}await a.publish(h)}catch(e){}}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));$(id).classList.add('on');window.scrollTo(0,0)}
+const N=8;
+function wedge(r,h,i,col){
+  const a0=-Math.PI/2+(i-.5)*2*Math.PI/N,a1=a0+2*Math.PI/N;
+  const s=new THREE.Shape();s.moveTo(0,0);s.absarc(0,0,r,a0,a1,false);s.lineTo(0,0);
+  const g=new THREE.ExtrudeGeometry(s,{depth:h,bevelEnabled:false,curveSegments:12});
+  g.rotateX(-Math.PI/2);
+  return new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:col,roughness:.55}));
+}
+function buildCake(face){
+  const cake=new THREE.Group(),wedges=[];
+  for(let i=0;i<N;i++){
+    const w=new THREE.Group();
+    const a=wedge(1.7,.9,i,0xff9ec4);a.position.y=0;w.add(a);
+    const ic=wedge(1.72,.14,i,0xfff1f7);ic.position.y=.9;w.add(ic);
+    const b=wedge(1.15,.8,i,0xffe3c4);b.position.y=1.04;w.add(b);
+    const t=wedge(1.17,.14,i,0xd9c7ff);t.position.y=1.84;w.add(t);
+    cake.add(w);wedges.push(w);
+  }
+  const plate=new THREE.Mesh(new THREE.CylinderGeometry(2.1,2.2,.12,48),new THREE.MeshStandardMaterial({color:0xffffff,roughness:.3}));
+  plate.position.y=-.12;cake.add(plate);
+  const m=c=>new THREE.MeshStandardMaterial({color:c,roughness:.5});
+  [-1,1].forEach(s=>{const e=new THREE.Mesh(new THREE.ConeGeometry(.35,.7,4),m(0xff7fae));e.position.set(s*.7,2.4,-.1);e.rotation.z=-s*.25;cake.add(e)});
+  [[-.5,-.2],[.5,-.2],[0,.5]].forEach(p=>{
+    const c=new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.4,10),m(0xffd36b));c.position.set(p[0],2.2,p[1]);cake.add(c);
+    const f=new THREE.Mesh(new THREE.SphereGeometry(.09,10,10),new THREE.MeshBasicMaterial({color:0xffa31a}));f.position.set(p[0],2.5,p[1]);cake.add(f)});
+  if(face){
+    const f=new THREE.Group();f.position.set(0,.5,1.72);
+    [-.4,.4].forEach(x=>{const e=new THREE.Mesh(new THREE.SphereGeometry(.09,10,10),m(0x5b3a63));e.position.set(x,.1,0);f.add(e)});
+    const n=new THREE.Mesh(new THREE.SphereGeometry(.07,10,10),m(0xff5f9e));n.position.set(0,-.05,0);f.add(n);
+    [-1,1].forEach(s=>[.1,-.05].forEach((y,k)=>{const l=new THREE.Mesh(new THREE.BoxGeometry(.5,.012,.012),m(0x5b3a63));l.position.set(s*.5,y-.05,0);l.rotation.z=s*(k?-.2:.2);f.add(l)}));
+    cake.add(f);
+  }
+  return {cake,wedges};
+}
+function mk(canvas,face){
+  const w=canvas.clientWidth||360,h=canvas.clientHeight||360;
+  const r=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));r.setSize(w,h,false);
+  const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(40,w/h,.1,100);cam.position.set(0,3.2,7.2);cam.lookAt(0,1.1,0);
+  sc.add(new THREE.AmbientLight(0xffffff,.75));const d=new THREE.DirectionalLight(0xffffff,.9);d.position.set(4,7,5);sc.add(d);
+  const o=buildCake(face);sc.add(o.cake);return {r,sc,cam,...o};
+}
+// Scene 1
+const A=mk($('c1'),true);
+(function loop(){A.cake.rotation.y+=.012;A.r.render(A.sc,A.cam);requestAnimationFrame(loop)})();
+$('enter').onclick=()=>show('s2');
+// Password
+function check(){
+  const v=$('dob').value.trim().replace(/[\/. ]/g,'-');
+  if(v==='07-11-2011'){$('err').textContent='';show('s3')}
+  else $('err').textContent='Oops! That is not the right date 🙈 Try again';
+}
+$('unlock').onclick=check;$('dob').onkeydown=e=>{if(e.key==='Enter')check()};
+// Gifts
+let cutDone=false,B=null;
+document.querySelectorAll('.gift').forEach(g=>g.onclick=()=>{
+  const n=g.dataset.g;
+  if(n==='1'){$('wtext').textContent=WISH;$('wish').classList.add('on')}
+  if(n==='2'){show('s4');if(!B)B=initCut()}
+  if(n==='3'){if(!cutDone){$('hint').textContent='🔒 Cut the cake first (Gift 2) 🍰';return}show('s5')}
+});
+$('closew').onclick=()=>$('wish').classList.remove('on');
+$('wish').onclick=e=>{if(e.target.id==='wish')$('wish').classList.remove('on')};
+// Cut scene
+function initCut(){
+  const S=mk($('c2'),false);
+  const knife=new THREE.Group();
+  const bl=new THREE.Mesh(new THREE.BoxGeometry(.04,1.2,1.9),new THREE.MeshStandardMaterial({color:0xdddddd,metalness:.8,roughness:.2}));
+  const hd=new THREE.Mesh(new THREE.BoxGeometry(.18,.9,.2),new THREE.MeshStandardMaterial({color:0xb9a3f0}));hd.position.set(0,.95,-.8);
+  knife.add(bl,hd);knife.position.set(.25,4,.8);knife.visible=false;S.sc.add(knife);
+  S.cake.rotation.y=0;S.knife=knife;S.t=null;
+  (function loop(){
+    if(S.t!==null){
+      S.t+=.016;const t=S.t,sl=S.wedges[0];
+      if(t<1){knife.visible=true;knife.position.y=4-3.2*(t);}
+      else if(t<2){knife.position.y=.8+Math.sin((t-1)*Math.PI)*0.0}
+      else if(t<3.4){const k=(t-2)/1.4,e=k*k*(3-2*k);sl.position.z=e*1.6;sl.position.x=e*.3;sl.rotation.y=-e*.35;knife.position.z=.8+e*1.4;knife.position.x=.25+e*.2;knife.position.y=.8+e*.4}
+      else if(t<4){knife.position.y+=.08}
+      else{knife.visible=false;S.t=null;$('cutmsg').textContent='🎉 Yummy! Make a wish, Rithika! 🎂💖';$('next').style.display='inline-block';cutDone=true;const g=$('gift3');g.classList.remove('lock');g.querySelector('b').textContent='🎀';$('hint').textContent='Gift 3 is unlocked! 💗'}
+    }
+    S.cake.rotation.y=S.t===null&&!cutDone?S.cake.rotation.y+.004:S.cake.rotation.y;
+    S.r.render(S.sc,S.cam);requestAnimationFrame(loop)})();
+  $('cut').onclick=()=>{if(S.t===null&&!cutDone){S.cake.rotation.y=0;S.t=0;$('cut').disabled=true}};
+  return S;
+}
+$('next').onclick=()=>show('s5');
+$('back4').onclick=()=>show('s3');
+// Timeline
+const yrs=[2015,2018,2020,2024,2026],tl=$('timeline');
+yrs.forEach((y,i)=>{
+  const d=document.createElement('div');d.className='tl';
+  d.innerHTML=`<label class="ph">${PHOTOS[y]?`<img src="${PHOTOS[y]}">`:'📷 Add photo'}<input type="file" accept="image/*" hidden></label><div class="yr">${y}</div>`+(i<yrs.length-1?'<div class="link"></div>':'');
+  const inp=d.querySelector('input'),ph=d.querySelector('.ph');
+  inp.onchange=async()=>{const f=inp.files[0];if(!f)return;try{const a=await claude.use('artifact');if(!a){alert('Only the page owner can add photos 💗');return}const b=await createImageBitmap(f);const k=Math.min(1,900/Math.max(b.width,b.height));const c=document.createElement('canvas');c.width=Math.round(b.width*k);c.height=Math.round(b.height*k);c.getContext('2d').drawImage(b,0,0,c.width,c.height);PHOTOS[y]=c.toDataURL('image/jpeg',.8);ph.innerHTML='';const i2=new Image();i2.src=PHOTOS[y];ph.appendChild(i2);ph.appendChild(inp);clearTimeout(tm);tm=setTimeout(save,1500)}catch(e){alert('Could not add this photo. Try a JPG or PNG.')}};
+  tl.appendChild(d);
+});
+// Finale + confetti
+const cv=$('conf'),cx=cv.getContext('2d');let P=[],run=false;
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener('resize',rs);
+function conf(){run=true;P=[];for(let i=0;i<160;i++)P.push({x:Math.random()*cv.width,y:-Math.random()*cv.height,v:2+Math.random()*4,s:5+Math.random()*7,c:`hsl(${Math.random()*360},85%,70%)`,r:Math.random()*6});
+  (function f(){cx.clearRect(0,0,cv.width,cv.height);P.forEach(p=>{p.y+=p.v;p.x+=Math.sin(p.y/30);p.r+=.1;if(p.y>cv.height)p.y=-10;cx.fillStyle=p.c;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillRect(0,0,p.s,p.s*.6);cx.restore()});if(run)requestAnimationFrame(f)})()}
+$('finish').onclick=()=>{show('fin');conf()};
+$('again').onclick=()=>{run=false;cx.clearRect(0,0,cv.width,cv.height);show('s3')};
+try{if(sessionStorage.getItem('rk')){sessionStorage.removeItem('rk');cutDone=true;show('s5')}}catch(e){}
+</script>
+</body></html>
